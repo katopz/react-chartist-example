@@ -1,0 +1,38 @@
+{
+  "name": "react-chartist-example",
+  "version": "1.0.0",
+  "description": "Working example for react chartist.",
+  "main": "main.js",
+  "scripts": {
+    "browser-sync": "browser-sync start --server --files './bundle.js'",
+    "watch-js": "watchify main.js -t babelify -o bundle.js -dv",
+    "watch": "npm run browser-sync && npm run watch-js"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.10.0",
+    "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-chartist": "^0.10.2",
+    "react-dom": "^15.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katopz/react-chartist-example.git"
+  },
+  "keywords": [
+    "react",
+    "chartist",
+    "example"
+  ],
+  "author": "katopz <katopz@gmail.com> (https://katopz.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katopz/react-chartist-example/issues"
+  },
+  "homepage": "https://github.com/katopz/react-chartist-example#readme"
+}

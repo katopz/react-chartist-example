@@ -6,7 +6,7 @@ import path from 'path';
 
 const ENV = process.env.NODE_ENV || 'development';
 
-const CSS_MAPS = ENV!=='production';
+const CSS_MAPS = ENV !== 'production';
 
 module.exports = {
 	context: path.resolve(__dirname, "src"),
@@ -27,7 +27,9 @@ module.exports = {
 		],
 		alias: {
 			components: path.resolve(__dirname, "src/components"),		// used for tests
-			style: path.resolve(__dirname, "src/style")
+			style: path.resolve(__dirname, "src/style"),
+			"react": "preact-compat",
+			"react-dom": "preact-compat"
 		}
 	},
 
@@ -73,7 +75,7 @@ module.exports = {
 			},
 			{
 				test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-				loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
+				loader: ENV === 'production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
 			}
 		]
 	},
@@ -86,7 +88,7 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new ExtractTextPlugin('style.css', {
 			allChunks: true,
-			disable: ENV!=='production'
+			disable: ENV !== 'production'
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
@@ -96,7 +98,7 @@ module.exports = {
 			template: './index.html',
 			minify: { collapseWhitespace: true }
 		})
-	]).concat(ENV==='production' ? [
+	]).concat(ENV === 'production' ? [
 		new webpack.optimize.OccurenceOrderPlugin()
 	] : []),
 
@@ -111,7 +113,7 @@ module.exports = {
 		setImmediate: false
 	},
 
-	devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
+	devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
 
 	devServer: {
 		port: process.env.PORT || 8080,

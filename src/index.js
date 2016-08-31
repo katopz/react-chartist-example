@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';

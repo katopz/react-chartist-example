@@ -4,8 +4,5 @@
     "es2015-minimal",
     "stage-0",
     "react"
-  ],
-  "plugins": [
-    ["transform-react-jsx", { "pragma": "h" }]
   ]
 }
